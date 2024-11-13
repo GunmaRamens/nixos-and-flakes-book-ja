@@ -128,6 +128,7 @@ export default defineConfig({
   locales: {
     root: themeConfigEnglish(),
     zh: themeConfigChinese(),
+    ja: themeConfigJapanese(),
   },
 })
 
@@ -547,6 +548,217 @@ function themeConfigChinese() {
         {
           text: "常见问题 FAQ",
           items: [{ text: "常见问题 FAQ", link: "/zh/faq/index.md" }],
+        },
+      ],
+    },
+  }
+}
+
+function themeConfigJapanese() {
+  return {
+    label: "日本語",
+    lang: "ja-JP",
+    link: "/ja",
+    title: "NixOS & Flakes Book",
+    description: "初心者のためのこだわりのある(非公式な)Nix本",
+
+    themeConfig: {
+      // https://vitepress.dev/reference/default-theme-config
+      nav: [
+        { text: "トップ", link: "/ja" },
+        { text: "Preface", link: "/ja/preface.md" },
+        { text: "入門する", link: "/ja/introduction/index.md" },
+        { text: "ベストプラクティス", link: "/ja/best-practices/intro.md" },
+      ],
+
+      sidebar: [
+        {
+          text: "Preface",
+          items: [{ text: "Preface", link: "/ja/preface.md" }],
+        },
+        {
+          text: "Get Started",
+          items: [
+            { text: "Introduction", link: "/ja/introduction/index.md" },
+            {
+              text: "Advantages and Disadvantages",
+              link: "/ja/introduction/advantages-and-disadvantages.md",
+            },
+            {
+              text: "Installation",
+              link: "/ja/introduction/installation.md",
+            },
+          ],
+        },
+        {
+          text: "Nix 言語",
+          items: [{ text: "Basics", link: "/ja/the-nix-language/index.md" }],
+        },
+        {
+          text: "NixOS と Flakes",
+          items: [
+            {
+              text: "Get Started with NixOS",
+              link: "/ja/nixos-with-flakes/get-started-with-nixos.md",
+            },
+            {
+              text: "Introduction to Flakes",
+              link: "/ja/nixos-with-flakes/introduction-to-flakes.md",
+            },
+            {
+              text: "NixOS with Flakes Enabled",
+              link: "/ja/nixos-with-flakes/nixos-with-flakes-enabled.md",
+            },
+            {
+              text: "NixOS's flake.nix Explained",
+              link: "/ja/nixos-with-flakes/nixos-flake-configuration-explained.md",
+            },
+            {
+              text: "The combination ability of Flakes and Nixpkgs module system",
+              link: "/ja/nixos-with-flakes/nixos-flake-and-module-system.md",
+            },
+            {
+              text: "Getting Started with Home Manager",
+              link: "/ja/nixos-with-flakes/start-using-home-manager.md",
+            },
+            {
+              text: "Modularize the Configuration",
+              link: "/ja/nixos-with-flakes/modularize-the-configuration.md",
+            },
+            {
+              text: "Updating the System",
+              link: "/ja/nixos-with-flakes/update-the-system.md",
+            },
+            {
+              text: "Downgrading or Upgrading Packages",
+              link: "/ja/nixos-with-flakes/downgrade-or-upgrade-packages.md",
+            },
+            {
+              text: "Other useful Tips",
+              link: "/ja/nixos-with-flakes/other-useful-tips.md",
+            },
+          ],
+        },
+        {
+          text: "Nixpkgs's Advanced Usage",
+          items: [
+            { text: "Introduction", link: "/ja/nixpkgs/intro.md" },
+            { text: "callPackage", link: "/ja/nixpkgs/callpackage.md" },
+            { text: "Overriding", link: "/ja/nixpkgs/overriding.md" },
+            { text: "Overlays", link: "/ja/nixpkgs/overlays.md" },
+            {
+              text: "Multiple Nixpkgs Instances",
+              link: "/ja/nixpkgs/multiple-nixpkgs.md",
+            },
+          ],
+        },
+        {
+          text: "Nix Store & Binary Cache",
+          items: [
+            { text: "Introduction", link: "/nix-store/intro.md" },
+            {
+              text: "Add Binary Cache Servers",
+              link: "/ja/nix-store/add-binary-cache-servers.md",
+            },
+            {
+              text: "Host Your Own Binary Cache Server",
+              link: "/ja/nix-store/host-your-own-binary-cache-server.md",
+            },
+          ],
+        },
+        {
+          text: "ベストプラクティス",
+          items: [
+            { text: "Introduction", link: "/best-practices/intro.md" },
+            {
+              text: "Run downloaded binaries on NixOS",
+              link: "/ja/best-practices/run-downloaded-binaries-on-nixos.md",
+            },
+            {
+              text: "Simplify NixOS-related Commands",
+              link: "/ja/best-practices/simplify-nixos-related-commands.md",
+            },
+            {
+              text: "Accelerating Dotfiles Debugging",
+              link: "/ja/best-practices/accelerating-dotfiles-debugging.md",
+            },
+            {
+              text: "Custom NIX_PATH and Flake Registry",
+              link: "/ja/best-practices/nix-path-and-flake-registry.md",
+            },
+            {
+              text: "Remote Deployment",
+              link: "/ja/best-practices/remote-deployment.md",
+            },
+            {
+              text: "Debugging Derivations and Nix Expressions",
+              link: "/ja/best-practices/debugging.md",
+            },
+          ],
+        },
+
+        {
+          text: "Other Usage of Flakes",
+          items: [
+            { text: "Introduction", link: "/other-usage-of-flakes/intro.md" },
+            {
+              text: "Flake Inputs",
+              link: "/ja/other-usage-of-flakes/inputs.md",
+            },
+            {
+              text: "Flake Outputs",
+              link: "/ja/other-usage-of-flakes/outputs.md",
+            },
+            {
+              text: "The New CLI",
+              link: "/ja/other-usage-of-flakes/the-new-cli.md",
+            },
+            {
+              text: "Module System & Custom Options",
+              link: "/ja/other-usage-of-flakes/module-system.md",
+            },
+            {
+              text: "[WIP]Testing",
+              link: "/ja/other-usage-of-flakes/testing.md",
+            },
+          ],
+        },
+        {
+          text: "Dev Environments on NixOS",
+          items: [
+            {
+              text: "nix shell, nix develop & pkgs.runCommand",
+              link: "/ja/development/intro.md",
+            },
+            {
+              text: "Dev Environments",
+              link: "/ja/development/dev-environments.md",
+            },
+            {
+              text: "[WIP]Packaging 101",
+              link: "/ja/development/packaging-101.md",
+            },
+            {
+              text: "Cross-platform Compilation",
+              link: "/ja/development/cross-platform-compilation.md",
+            },
+            {
+              text: "Distributed Building",
+              link: "/ja/development/distributed-building.md",
+            },
+            {
+              text: "[WIP]Kernel Development",
+              link: "/ja/development/kernel-development.md",
+            },
+          ],
+        },
+        {
+          text: "Advanced Topics",
+          items: [{ text: "Advanced Topics", link: "/ja/advanced-topics/index.md" }],
+        },
+        {
+          text: "Frequently Asked Questions",
+          items: [{ text: "Frequently Asked Questions", link: "/ja/faq/index.md" }],
         },
       ],
     },
