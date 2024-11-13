@@ -1,13 +1,11 @@
-# Basics of the Nix Language
+# Nix 言語のきほんのき
 
-The Nix language is essential for declaring configurations to be built by Nix. To fully
-enjoy the benefits of NixOS and Flakes, it is necessary to grasp the fundamentals of this
-language.
+Nixによって構築された設定を説明するのにNix言語は欠かせません。NixOSとFlakesの利点を完全に楽しむにはこの言語の基礎を知る必要があります。
 
 The Nix language is a straightforward functional language. If you have some programming
 experience, it should take you less than 2 hours to grasp its basics.
 
-The community already has a lot of good Nix language tutorials, so I won't reinvent the
+The comunity already has a lot of good Nix language tutorials, so I won't reinvent the
 wheel. To get started, I recommend reading the following resources for a quick
 introduction to the Nix language:
 
