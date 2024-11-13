@@ -6,22 +6,21 @@ titleTemplate: "Home Page"
 
 hero:
   name: "NixOS & Flakes Book"
-  text: "An unofficial book for beginners"
+  text: "初心者のための非公式なNix本"
   tagline:
-    Want to know NixOS & Flakes in detail? Looking for a beginner-friendly tutorial? Then
-    you've come to the right place!
+    NixOS & Flakesについて細かく知りたくないですか?<br />初心者に優しいチュートリアルを探してますか? <br />ここで勉強しましょう!
   image:
     src: /logo.png
     alt: NixOS Flakes
   actions:
     - theme: brand
-      text: Preface
-      link: /preface.md
+      text: はじめに
+      link: /ja/preface.md
     - theme: brand
-      text: Get Started
-      link: /introduction/index.md
+      text: 入門する
+      link: /ja/introduction/index.md
     - theme: alt
-      text: View on GitHub
+      text: GitHub
       link: https://github.com/ryan4yin/nixos-and-flakes-book
 # features:
 #   - title: Feature A
