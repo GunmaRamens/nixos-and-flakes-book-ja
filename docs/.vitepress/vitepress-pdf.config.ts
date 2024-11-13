@@ -18,7 +18,10 @@ if (sidebar) {
 console.log("routeOrder: ", routeOrder)
 
 export default defineUserConfig({
-  routePatterns: ["!/zh/**"], // exclude zh-CN pages
+  routePatterns: [
+    "!/zh/**", // exclude zh-CN pages
+    "!/ja/**", // exclude ja-JP pages
+  ],
   sorter: (pageA, pageB) => {
     const aIndex = routeOrder.findIndex((route) => route === pageA.path)
     const bIndex = routeOrder.findIndex((route) => route === pageB.path)
