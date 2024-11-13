@@ -753,8 +753,8 @@ function themeConfigJapanese() {
           ],
         },
         {
-          text: "発展的な内容",
-          items: [{ text: "発展的な内容", link: "/ja/advanced-topics/index.md" }],
+          text: "高度なトピック",
+          items: [{ text: "高度なトピック", link: "/ja/advanced-topics/index.md" }],
         },
         {
           text: "よくある質問",

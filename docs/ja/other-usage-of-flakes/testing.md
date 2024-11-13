@@ -1,8 +1,8 @@
-# Testing
+# テスト
 
 TODO
 
-## References
+## 参考文献
 
 - [Integration testing with NixOS virtual machines - nix.dev](https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html)
 - [NixOS Testing library](https://wiki.nixos.org/wiki/NixOS_Testing_library)
