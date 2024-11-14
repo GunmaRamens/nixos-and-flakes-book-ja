@@ -15,10 +15,10 @@ hero:
   actions:
     - theme: brand
       text: まえがき
-      link: /ja/preface.md
+      link: /preface.md
     - theme: brand
       text: 読み始める
-      link: /ja/introduction/index.md
+      link: /introduction/index.md
     - theme: alt
       text: GitHub
       link: https://github.com/ryan4yin/nixos-and-flakes-book
