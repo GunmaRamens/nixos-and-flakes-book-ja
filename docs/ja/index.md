@@ -14,14 +14,17 @@ hero:
     alt: NixOS Flakes
   actions:
     - theme: brand
-      text: はじめに
+      text: まえがき
       link: /ja/preface.md
     - theme: brand
-      text: 入門する
+      text: 読み始める
       link: /ja/introduction/index.md
     - theme: alt
       text: GitHub
       link: https://github.com/ryan4yin/nixos-and-flakes-book
+    - theme: alt
+      text: GitHub(ja)
+      link: https://github.com/GunmaRamens/nixos-and-flakes-book-ja
 # features:
 #   - title: Feature A
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
