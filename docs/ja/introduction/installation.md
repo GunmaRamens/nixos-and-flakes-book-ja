@@ -1,19 +1,20 @@
-# Installation
+# インストール
 
-Nix can be installed in various ways:
+Nix は様々な方法でインストールすることができます:
 
-1. As a package manager on macOS, Linux, or WSL.
-2. As the system environment manager on NixOS, a Linux distribution that utilizes Nix for
-   system management.
+1. macOS, Linux, WSL のパッケージマネージャとしてインストール
+2. NixOS のシステム環境マネージャとしてインストール
+   > NixOS は Nix を システム管理に適用している Linux ディストリビューション です。
 
-This book primarily focuses on the usage of NixOS and Flakes. Therefore, we will skip
-content that pertains solely to Nix(such as installation on macOS, Linux, or WSL).
+この記事では主に NixOS と Flakes の使い方に焦点を当てているため、Nix 単独の内容 (macOS,
+Linux, WSL へのインストール等) については取り扱いません。
 
-The installation process of NixOS is straightforward, but we won't delve into the
-specifics here. For more information, please visit the official download site at
+NixOS のインストール手順は簡単ですが、ここでは深く詮索しません。より詳細な情報については以
+下のダウンロードサイトが参考になります。
+
 <https://nixos.org/download.html>.
 
-> If you're using macOS,
-> [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter)
-> may be a good starting point for you, you can learn how to use Nix with this book and
-> take nix-darwin-kickstarter as a start point to build your own Nix configuration.
+> macOS ユーザの方は
+> [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter) が
+> 参考になるかもしれません。 この記事は Nix の使い方を学び、Nix の設定を書くのに良い入門書
+> となるでしょう。
