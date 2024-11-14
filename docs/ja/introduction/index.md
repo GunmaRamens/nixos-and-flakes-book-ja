@@ -56,28 +56,25 @@ PostgreSQLやMySQL、MongoDBのような動的なデータは宣言的設定で�
 たった1つのコマンド`sudo nixos-rebuild switch --flake .`を実行するだけで復元できることです。
 これまでのものと比較すると、まさに魔法でした。
 
-The rollback capability and reproducibility of NixOS has instilled a great deal of
-confidence in me—I no longer fear breaking the system. I've even ventured into
-experimenting with new things on NixOS, such as the hyprland compositor. Previously, on
-EndeavourOS, I wouldn't have dared to tinker with such novel compositors, as any system
-mishaps would have entailed significant manual troubleshooting using various workarounds.
+このロールバック機能とNixOSの再現性によって、私はこれ以上システムを壊すことはないという大きな自信を得ました。
+NixOSでhyprlandのような新しいものの実験もしました。
+EndeavourOSを使っていた以前ならば、問題が発生した際に様々な回避策を駆使して大規模な
+トラブルシューティングをする必要があったため、hyprlandのような新しいコンポジッタを弄る勇気はありませんでした。
 
-As I get more and more involved with NixOS and Nix, I find it also very suitable for
-synchronously managing the configuration of multiple hosts. Currently my personal
-[nix-config](https://github.com/ryan4yin/nix-config) synchronously manages the
-configuration of many hosts:
+NixOSとNixをより多く触っていくうちに、Nixは複数のホストで構成を同期することにも非常に適していると気づきました。
+
+現在、私の個人的な[nix-config](https://github.com/ryan4yin/nix-config)は多くのホストの設定を同時に管理しています:
 
 - デスクトップ
-  - 1 Macbook Pro 2020 (Intel amd64).
-  - 1 Macbook Pro 2022 (M2 aarch64).
-  - 1 NixOS desktop PC (amd64).
+  - 1台のMacbook Pro 2020 (Intel amd64).
+  - 1台のMacbook Pro 2022 (M2 aarch64).
+  - 1台のNixOS desktop PC (amd64).
 - サーバー
-  - 3 NixOS virtual machines (amd64).
+  - 3台のNixOS仮想マシン (amd64).
+  - aarch64やriscv64で動作するいくつかの開発用ボード
   - Several development boards for aarch64 and riscv64.
 
-The development environment of three desktop computers is managed by Home Manager, the
-main configuration is completely shared, and the configuration modified on any host can be
-seamlessly synchronized to other hosts through Git.
+3台のデスクトップコンピュータの開発環境はHome Managerで管理されています。
+メインの設定は完全に共有され、何れかのホストで変更された設定はGitを通してシームレスに同期されます。
 
-Nix almost completely shielded me from the differences between OS and architecture at the
-bottom of the three machines, and the experience was very smooth!
+Nixは下部の3つのマシンでほぼ完璧にOSとアーキテクチャの差異を隠蔽してくれるので、その体験は非常にスムーズです。
