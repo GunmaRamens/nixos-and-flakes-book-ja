@@ -1,88 +1,75 @@
-# Preface
+# まえがき
 
-## The Pain of NixOS Beginners - Documentation and Flakes
+## NixOS初学者の苦しみ - ドキュメントとFlakes
 
-NixOS is a highly distinctive Linux distribution built upon the Nix package manager, with
-a design philosophy that sets it apart from traditional distributions like Ubuntu, CentOS,
-Arch Linux and others.
+NixOSはNixパッケージマネージャーのもとで構築された非常に特徴的なLinuxディストリビューションであり、
+これまでのUbuntuやCentOS、Arch Linux等の伝統的なディストリビューションとは一線を画す哲学的デザインに基づいています。
 
-One of NixOS's major advantages over other distributions lies in its reproducibility and
-declarative configuration, allowing users to replicate consistent system environments
-across multiple machines.
+他のディストリビューションに対するNixOSの大きな利点の1つはその再現性の高さと宣言的記述にあり、
+複数のデバイスを跨いで一貫した環境を複製することができます。
 
-While NixOS is powerful, its strength also comes with increased system complexity. This
-makes it more challenging for newcomers. One major challenge is that the knowledge
-accumulated on other Linux distributions is not easily transferable to NixOS. Another is
-that official and community documentation is often scattered and outdated. These issues
-have troubled many NixOS beginners.
+NixOSは確実に強力ですが、この大きな力には複雑さの増大という犠牲が伴います。この犠牲は初学者には非常に困難なものになります。
+そのうちの1つが他のLinuxディストリビューションの知識をNixOSに活用するのが難しいということです。
+また、公式やコミュニティのドキュメントが分散していたり古くなっていたりすることがあります。
+こういった問題はNixOSの初心者に大きな壁として立ちはだかります。
 
-One can observe these issues with the experimental feature of the Nix package manager
-called Flakes. Inspired by package managers like npm and Cargo, Flakes uses `flake.nix` to
-record all external dependencies and `flake.lock` to lock their versions. This
-significantly enhances the reproducibility and composability of the Nix package manager
-and NixOS configurations.
+それ以外にも、Flakesと呼ばれるNixパッケージマネージャーの実験的な機能に関連したトラブルも見られます。
+npmやCargoといったパッケージマネージャーに触発され、Flakesは`flake.nix`と呼ばれるファイルに
+全ての外部の依存関係を記録し`flake.lock`でバージョンを固定します。
+これらはNixパッケージマネージャーとNixOSの再現性と可用性(composability)を高めます。
 
-Flakes' advantages have made it widely popular within the community: according to official
-surveys, over half of the new Nix repositories created on GitHub now utilize Flakes.
+Flakeはその利点によってコミュニティで広く使われるようになりました。
+公式の調査によると、新たにGitHubに作成されるNixのリポジトリの過半数がFlakesを利用しています。
 
-However, to maintain stability, the official documentation covers barely any
-Flakes-related content. This has left many Nix/NixOS users feeling confused. They see
-everyone using Flakes and want to learn it too, but find nowhere to start, often having to
-piece together scattered information, search through Nixpkgs source code, or seek help
-from more experienced users.
+しかし、残念ながら安定性を維持するために公式のドキュメントはFlakesに関する内容にごく僅かに言及しているのみです。
+このことは多くのNix/NixOSユーザーが混乱してしまいました。
+多くの人がFlakesを使っており、自分もそれを学びたいのにどこから始めたら良いのかわからないのです。
+散らばった情報をパズルのように繋ぎ合わせたり、Nixpkgsのソースコードを検索したり、
+経験豊富なユーザーに助けを求めなければなりませんでした。
 
-## The Origin of This Book
+## この本の原点
 
-This book originated from my scattered notes when I first started with NixOS.
+この本の原点は私は最初にNixOSを使い始めたときに書いていた散らばったメモまで遡ります。
 
-In April of this year (2023), when I got into NixOS, I fell in love with its design
-philosophy. At the recommendation of a friend, I learned about Nix's Flakes experimental
-feature. After comparing Flakes with the traditional NixOS configuration method, I
-realized that only a Flakes-enabled NixOS met my expectations. Consequently, I completely
-ignored the traditional Nix configuration approach and directly learned to configure my
-NixOS system using Flakes during my initial steps.
+私がNixOSに入門した今年(2023)の4月、Nixの哲学とデザインに感銘を受けました。
+友人が勧めるままに私はNixの実験的な機能であるFlakesを学びました。
+Flakesと旧来のNixOSの設定方法を比較したとき、前者がまさに求めているものだと気づきました。
+その結果私は伝統的なアプローチを完全に無視して、最初の段階でFlakesを用いてNixOSのシステムを構築する方法を学びました。
 
-Throughout my learning process, I found that there were very few beginner-friendly Flakes
-resources. The vast majority of documentation focused on the traditional Nix configuration
-approach, forcing me to extract the information I needed from various sources such as the
-NixOS Wiki, Zero to Nix, Nixpkgs Manual, and Nixpkgs source code while disregarding any
-non-Flakes-related content. This learning journey was quite convoluted and painful. To
-prevent future stumbling, I diligently documented numerous scattered notes as I
-progressed.
+この学習を経て、初心者に優しいFlakesに関するガイドが殆ど存在しないこに気づきました。
+多くのドキュメントは伝統的なNixの設定にのみ焦点を当てており、当時の私はNixOS Wiki、Zero to Nix、
+Nixpkgs Manual、Nixpkgsのソースコードなどから、旧来の設定に関する情報を無視しながら必要な情報のみを探し出す必要がありました。
+この学習の道のりはあまりにも複雑で苦痛でした。
+今後また躓かないよう、作業を進めるにつれて分散したメモを必死に文書化するようになりました。
 
-With some experience under my belt, in early May of this year, I switched my main PC to
-NixOS. After organizing and refining my NixOS newcomer notes, I published them on my
-blog[^1] and shared them in the NixOS Chinese community. The Chinese community responded
-positively, and based on their advice, I translated the article into English and shared it
-on Reddit, receiving strong feedback[^2].
+いくらかの経験を経た今年(2023)の5月のはじめ、私はメインPCをNixOSに切り替えました。
+NixOS入門者向けのメモを整理した後、それを私のブログ[^1]にアップロードし中国のコミュニティで共有しました。
+そこでの好感触な反応とアドバイスをもとに、その記事を英語に翻訳してRedditで共有し大きな反響を頂きました[^2]。
 
-The positive reception of this shared document encouraged me and drove me to continue
-improving it. Through continuous updates, the content of this document expanded to over
-20,000 words. Some readers suggested that the reading experience could be improved,
-leading me to their suggestions[^3]. As a result, I migrated the article's content to a
-GitHub repository, established a dedicated documentation site, and adjusted the
-presentation to make it more aligned with a beginner's guide rather than a personal
-notebook.
+共有したドキュメントが好感触に受け入れられたことが私の原動力となり、更に改善をし続けました。
+継続的なアップデートにより、ドキュメントの内容は20,000語を突破しました。
+数名の読者がこのドキュメントの体験を更に改善できるのではないかと提案[^3]し、私はそれに導かれました。
+結果として私は今までの記事をGitHub上のリポジトリに移動し、専用のドキュメントサイトを立ち上げ、
+個人的なメモではなく初学者向けのガイドとなるように更に調整を加えました。
 
-And so, a bilingual open-source book was born, which I named "<NixOS & Flakes Book>" with
-the Chinese title "NixOS & Flakes 新手指南" ("NixOS & Flakes Beginner's Guide").
+そしてこの多言語対応なオープンソースの本が生まれました。"<NixOS & Flakes Book>"と命名されたこの本は中国語で"NixOS & Flakes 新手指南" ("NixOS & Flakes Beginner's Guide")と命名されました。
 
-This open-source book's content evolved step by step as I used NixOS and engaged with
-readers. The sense of accomplishment from readers' positive feedback has been my greatest
-motivation for updates. Some readers' feedback has been immensely helpful in its
-"evolution." Initially, I only wanted to share my experiences with NixOS in a somewhat
-casual manner, but it unexpectedly turned into an open-source book. Its readership abroad
-even surpassed that within my own country, and it garnered many stars - a result I never
-anticipated.
+<!-- And so, a bilingual open-source book was born, which I named "<NixOS & Flakes Book>" with
+the Chinese title "NixOS & Flakes 新手指南" ("NixOS & Flakes Beginner's Guide"). -->
 
-I am grateful to all friends who have contributed to this book and offered suggestions,
-and I appreciate all the support and encouragement from the readers. Without all of you,
-this book's content might have remained confined to my personal blog, and it wouldn't have
-reached its current form.
+このオープンソースの本の内容は、私が更にNixOSを使ったり読者と交流を持っていくなかで少しずつ進化していきました。
+読んでくださる方々からのポジティブな感想は、このドキュメントの更新のモチベーションになります。
+何人かの読者からの感想はまさにこの本の「進化」に役立ちました。
+最初はただNixOSでの体験を気軽に共有したかっただけでしたが、なんとオープンソースの本にまで成長しました。
+海外の読者数は私の国での数を大きく上回り、予想だにしなかった多くの数のstarをいただくことができました。
 
-## The Features of This Book
+この本に貢献してくださったり提案をくださった全ての友人に感謝を申し上げます。
+さらに、支援と励ましをくださった全ての読者に深く感謝します。
+彼らがいなければこの本の内容は私の個人ブログに留まり、現在の形になることはなかったでしょう。
 
-1. Focused on NixOS and Flakes, disregarding the traditional Nix configuration approach.
+## この本の特徴
+
+1. NixOSとFlakesに焦点を当て、旧来のNixのアプローチを無視しています
 2. Beginner-friendly, with explanations from the perspective of NixOS newcomers who have
    some experience with Linux usage and programming.
 3. Step-by-step, progressive learning.
@@ -91,9 +78,9 @@ reached its current form.
 5. Coherent content, well-organized, and structured. Readers can either read the book
    gradually or quickly find the information they need.
 
-## Donation
+## 寄付
 
-If you find this book helpful, please consider donating to support its development.
+もしこの本があなたのお役に立てたなら、さらなる更新と維持のために寄付をしていただけると幸いです。
 
 - GitHub: <https://github.com/sponsors/ryan4yin>
 - Patreon: <https://patreon.com/ryan4yin>
@@ -101,32 +88,30 @@ If you find this book helpful, please consider donating to support its developme
 - 爱发电: <https://afdian.com/a/ryan4yin>
 - Ethereum: `0xB74Aa43C280cDc8d8236952400bF6427E4390855`
 
-## Feedback and Discussion
+## フィードバックとディスカッション
 
-I’m not an expert on NixOS, and I’ve only been using NixOS for less than 9 months until
-now(2024-02), so there must be some misconceptions or complex cases in the book. If anyone
-finds anything incorrect or have any questions / suggestions, just let me know about it by
-opening an issue or joining the discussion on
-[GitHub Discussions](https://github.com/ryan4yin/nixos-and-flakes-book/discussions). I'm
-happy to continue improving the content of this book.
+私はNixOSのエキスパートではなく2024年2月の時点でNixOSを9ヶ月程度しか使ってないので、
+何かしらの誤解や複雑な事例が含まれているかもしれません。
+なにか間違っていることや質問/提案を発見したら、是非issueを開いたり
+[ディスカッションに参加](https://github.com/ryan4yin/nixos-and-flakes-book/discussions)したりして私に知らせてください。
+この本を今後も改善し続けたいと考えています。
 
-The reason why I wrote this little book was only because no one in the community did it
-for me, who was a beginner at the time, so I chose to do it myself. Even though I knew I
-could make mistakes, it's much better than doing nothing.
+この小さな本を書き始めた理由は、当時はコミュニティの誰も初学者の私に代わって書いてくれる人がいなかったためです。
+間違いを犯す可能性があったとしても、何もしないよりは遥かに良いことだと考えています。
 
-My hope is that this book can help more people, enabling them to experience the joys of
-NixOS. Hope you like it!
+この本がより多くの人の助けとなり、NixOSを楽しんでいただくことを心から願っています。
+気に入っていただければ幸いです。
 
-## Historical Feedback and Discussions on This Book
+## この本に関するフィードバックとディスカッションの歴史
 
-English feedback and related discussions:
+英語でのフィードバックと関連するディスカッション:
 
 - [[2023-05-11] NixOS & Nix Flakes - A Guide for Beginners - Reddit](https://www.reddit.com/r/NixOS/comments/13dxw9d/nixos_nix_flakes_a_guide_for_beginners/)
 - [[2023-06-22] Updates: NixOS & Nix Flakes - A Guide for Beginners - Reddit](https://www.reddit.com/r/NixOS/comments/14fvz1q/updates_nixos_nix_flakes_a_guide_for_beginners/)
 - [[2023-06-24] An unofficial NixOS & Flakes book for beginners - Discourse](https://discourse.nixos.org/t/an-unofficial-nixos-flakes-book-for-beginners/29561)
 - [[2023-07-06] This isn't an issue but it has to be said: - Discussions](https://github.com/ryan4yin/nixos-and-flakes-book/discussions/43)
 
-Chinese feedback and discussions:
+中国語のフィードバックとディスカッション:
 
 - [[2023-05-09] NixOS 与 Nix Flakes 新手入门 - v2ex 社区](https://www.v2ex.com/t/938569#reply45)
 - [[2023-06-24] NixOS 与 Flakes | 一份非官方的新手指南 - v2ex 社区](https://www.v2ex.com/t/951190#reply9)
