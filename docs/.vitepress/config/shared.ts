@@ -114,13 +114,13 @@ export const shared = defineConfig({
     },
 
     editLink: {
-      pattern: "https://github.com/ryan4yin/nixos-and-flakes-book/edit/main/docs/:path",
+      pattern: "https://github.com/GunmaRamens/nixos-and-flakes-book/edit/main/docs/:path",
     },
 
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/ryan4yin/nixos-and-flakes-book",
+        link: "https://github.com/GunmaRamens/nixos-and-flakes-book-ja",
       },
     ],
   },
