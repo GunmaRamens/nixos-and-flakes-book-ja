@@ -6,35 +6,25 @@
 
 - [Nix Official - Community](https://nixos.org/community/): Nix コミュニティやフォーラム、リアルタイムのチャット、meetups、RFCの情報が公開されています。
 - [Nix Channel Status](https://status.nixos.org/): The build status of each Nix channel.
-- [nix-community/NUR](https://github.com/nix-community/NUR): Nixpkgsには非常に多くのパッケージが含まれていますが、レビューの速度やライセンスの問題等によって含まれていないパッケージもあります。NUR is a decentralized Nix package repository
-  where anyone can create their own Nix repository and add it to NUR for others to use. If
-  you want to use a package that is not in Nixpkgs, you can try to find it here. If you
-  want to share your own Nix package with others, you can create and share your own Nix
-  repository according to the README of NUR.
+- [nix-community/NUR](https://github.com/nix-community/NUR): Nixpkgsには非常に多くのパッケージが含まれていますが、レビューの速度やライセンスの問題等によって含まれていないパッケージもあります。NURは誰でも独自に作成して他の人が使えるようにパッケージを追加できる、分散型のNixパッケージリポジトリです。Nixpkgsに無いパッケージを使いたいときはNURで探すことができます。また、NURのREADMEに従えば独自のNixパッケージを他の人と共有することもできます。
 
 ## ドキュメントとビデオ
 
 - [Eelco Dolstra - The Purely Functional Software Deployment Model - 2006](https://edolstra.github.io/pubs/phd-thesis.pdf):
-  Eelco Dolstra's seminal PhD thesis about the Nix package manager,
+  Eelco Dolstra氏によるNixパッケージマネージャーに関する独創的な博士論文。
 - [Nix Reference Manual](https://nixos.org/manual/nix/stable/package-management/profiles.html):
-  A comprehensive guide to the Nix package manager, covering its design and usage from the
-  command line.
-- [nixpkgs Manual](https://nixos.org/manual/nixpkgs/unstable/): The manual for nixpkgs,
-  which introduces its parameters, explains how to use, modify, and package Nix packages.
+  デザインとコマンドラインの使い方もコミコミのNixパッケージマネージャーのガイド。
+- [nixpkgs Manual](https://nixos.org/manual/nixpkgs/unstable/): このnixpkgsのマニュアルでは各パラメータの紹介と
+  使い方、そして変更やパッケージングの方法を説明しています。
 - [NixOS Manual](https://nixos.org/manual/nixos/unstable/): A user manual for NixOS,
   providing configuration instructions for system-level components such as Wayland/X11 and
   GPU.
-- [nix-pills](https://nixos.org/guides/nix-pills): "Nix Pills" is a series of guides that
-  provide an in-depth explanation of building software packages with Nix. It offers clear
-  and understandable explanations.
-- [nixos-in-production](https://github.com/Gabriella439/nixos-in-production): This is a
-  work-in-progress book hosted on LeanPub about introducing and maintaining NixOS in a
-  production environment.
+- [nix-pills](https://nixos.org/guides/nix-pills): "Nix Pills"はNixでソフトウェアのパッケージを構築する手法を
+  深く説明しているガイドです。やさしくわかりやすい説明をしてくれています。
+- [nixos-in-production](https://github.com/Gabriella439/nixos-in-production): プロダクション環境でNixOSを使用し
+  メンテナンスするための手法を説明しているまだ作業中(WIP)の本です。LeanPub上に構築されています。
 
-And there are many official videos on the
-[NixOS Foundation](https://www.youtube.com/@NixOS-Foundation) and
-[NixCon](https://www.youtube.com/@NixCon) channels on YouTube. Here are a few videos that
-are highly recommended:
+[NixOS Foundation](https://www.youtube.com/@NixOS-Foundation)と[NixCon](https://www.youtube.com/@NixCon)のYouTubeチャンネルには更に多くの公式ビデオがあります。以下は推奨されるビデオです:
 
 - [Summer of Nix 2022 — Public Lecture Series](https://www.youtube.com/playlist?list=PLt4-_lkyRrOMWyp5G-m_d1wtTcbBaOxZk):
   A series of public lectures hosted by the NixOS Foundation, presented by core members of
@@ -49,13 +39,12 @@ are highly recommended:
 
 ## 高度なテクニックとコミュニティプロジェクト
 
-Once you are comfortable with Flakes, you can explore more advanced techniques and
-community projects. Here are some popular ones to try out:
+Flakesに慣れたなら、更に高度なテクニックとコミュニティプロジェクトを探すのも良いでしょう。以下の人気なものを試してみるのもいいかもしれません:
 
-- [flake-parts](https://github.com/hercules-ci/flake-parts): Simplifies the writing and maintenance of configurations using the Module module system.
+- [flake-parts](https://github.com/hercules-ci/flake-parts): モジュールシステムを利用して設定の記述とメンテナンスを容易にします
 - [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus): Flakeの設定を強化し追加の高度な機能を提供してくれるサードパーティ製のパッケージ
 
-There are many other valuable community projects worth exploring. Here are a few examples:
+他にも、良質なコミュニティがたくさんあるので覗いてみるのも良いでしょう。いくつかの例はこちら:
 
 - [nix-output-monitor](https://github.com/maralorn/nix-output-monitor): Beautifully
   displays the build progress of Nix packages, with additional information such as build
