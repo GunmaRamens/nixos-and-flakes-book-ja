@@ -5,6 +5,10 @@ export const ja = defineConfig({
   description: "初心者のためのこだわりのある(非公式な)Nix本",
 
   themeConfig: {
+    outline: {
+      label: "おしながき",
+    },
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "トップ", link: "/" },
