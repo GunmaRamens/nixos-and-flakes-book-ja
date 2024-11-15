@@ -39,8 +39,7 @@ sudo nixos-rebuild switch
 この方法では`~/nixos-config`以下にある設定をGitで管理できます。
 そしてこれらのファイルは通常のユーザー権限で編集できるのでroot権限は不要です。
 
-Another approach is to delete `/etc/nixos` directly and specify the configuration file
-path each time you deploy it:
+他にも、`/etc/nixos`ディレクトリを削除して設定ファイルへのパスをデプロイの際に指定する方法もあります:
 
 ```shell
 sudo mv /etc/nixos /etc/nixos.bak
@@ -51,33 +50,32 @@ cd ~/nixos-config
 sudo nixos-rebuild switch --flake .#my-nixos
 ```
 
-Choose the method that suits you best. Afterward, system rollback becomes simple. Just
-switch to the previous commit and deploy it:
+どちらかの自分に適した方法を使いましょう。そうすることでシステムのロールバックはシンプルになります。
+ただ単に以前のコミットにswitchしてデプロイするだけになります:
 
 ```shell
 cd ~/nixos-config
-# Switch to the previous commit
+# 1つ前のコミットに切り替える
 git checkout HEAD^1
 # Deploy the flake.nix located in the current directory,
 # with the nixosConfiguration's name `my-nixos`
 sudo nixos-rebuild switch --flake .#my-nixos
 ```
 
-More advanced Git operations are not covered here, but in general, rollback can be
-performed directly using Git. Only in cases of complete system crashes would you need to
-restart into the bootloader and boot the system from a previous historical version.
+より高度なGitの操作についてはここでは説明しませんが、基本的にはロールバックはGitを用いて直接行うことができます。
+しかしシステムが完全にクラッシュしてしまった場合には、ブートローダーから以前のバージョンを起動する必要があるかもしれません。
 
-## Viewing and Deleting Historical Data
+## 変更履歴の表示と削除
 
-As mentioned earlier, each NixOS deployment creates a new version, and all versions are
-added to the system's boot options. In addition to restarting the computer, you can query
-all available historical versions using the following command:
+最初の方で示した通り、NixOSの各デプロイはそれぞれ新しいバージョンとして記録され、全ての各バージョンは
+システムのブートオプションに追加されています。
+コンピュータを再起動する以外にも以下のコマンドで過去のバージョンの一覧を確認できます:
 
 ```shell
 nix profile history --profile /nix/var/nix/profiles/system
 ```
 
-To clean up historical versions and free up storage space, use the following command:
+過去のバージョン履歴を削除して、ストレージの余白を増やすには以下のコマンドを使用してください:
 
 ```shell
 # Delete all historical versions older than 7 days
@@ -101,10 +99,9 @@ To find out why a package is installed, you can use the following command:
 1. `/<package-name>` to find the package you want to check.
 1. `w` to show the package is depended by which packages, and the full dependency chain.
 
-## Reducing Disk Usage
+## ディスクの使用量を減らす
 
-The following configuration can be added to your NixOS configuration to help reduce disk
-usage:
+以下の設定をNixOSに追加することで、ディスクの使用量を減らすことができます:
 
 ```nix
 { lib, pkgs, ... }:
