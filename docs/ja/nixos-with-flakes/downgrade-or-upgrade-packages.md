@@ -1,12 +1,11 @@
 # Downgrading or Upgrading Packages
 
-When working with Flakes, you may encounter situations where you need to downgrade or
-upgrade certain packages to address bugs or compatibility issues. In Flakes, package
-versions and hash values are directly tied to the git commit of their flake input. To
-modify the package version, you need to lock the git commit of the flake input.
+Flakesを使用していると、バグを特定したり互換性の問題に対処したりするために
+特定のパッケージをアップ(ダウン)グレードしたいことがあります。
+Flakesにおいては、パッケージのバージョンとハッシュ値はそのflake inputのgit commitに直接結びついています。
+パッケージのバージョンを変更するには、flake inputのgit commitをロックする必要があります。
 
-Here's an example of how you can add multiple nixpkgs inputs, each using a different git
-commit or branch:
+こちらの例は複数のnipkgs inputを指定し、それぞれで異なるgit commitやブランチを使う設定です:
 
 ```nix{8-13,19-20,27-44}
 {
@@ -65,10 +64,10 @@ commit or branch:
 }
 ```
 
-In the above example, we have defined multiple nixpkgs inputs: `nixpkgs`,
-`nixpkgs-stable`, and `nixpkgs-fd40cef8d`. Each input corresponds to a different git
-commit or branch.
+上記の例では、複数のnixpkgs inputをそれぞれ`nixpkgs`、`nixpkgs-stable`、`nixpkgs-fd40cef8d`として定義しました。
+それぞれのinputは異なるcommitやbranchに対応しています。
 
+その後、サブモジュール`pkgs-stable`や`pkgs-fd40cef8d`のパッケージを参照します。
 Next, you can refer to the packages from `pkgs-stable` or `pkgs-fd40cef8d` within your
 submodule. Here's an example of a Home Manager submodule:
 
