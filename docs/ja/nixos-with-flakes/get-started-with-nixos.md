@@ -1,36 +1,31 @@
-# Get Started with NixOS
+# NixOS 入門
 
-Now that we have learned the basics of the Nix language, we can start using it to
-configure our NixOS system. The default configuration file for NixOS is located at
-`/etc/nixos/configuration.nix`. This file contains all the declarative configuration for
-the system, including settings for the time zone, language, keyboard layout, network,
-users, file system, and boot options.
+Nix言語の基本を勉強したら、いよいよNixOSのシステムの設定をはじめましょう。
+デフォルトの設定ファイルは`/etc/nixos/configuration.nix`に置かれています。
+このファイルにはタイムゾーンや言語、キーボード配列、ネットワーク、ユーザー、ファイルシステム、
+起動オプションといった全ての宣言的な設定が含まれています。
 
-To modify the system state in a reproducible manner (which is highly recommended), we need
-to manually edit the `/etc/nixos/configuration.nix` file and then execute
-`sudo nixos-rebuild switch` to apply the modified configuration. This command generates a
-new system environment based on the modified configuration file, sets the new environment
-as the default one, and preserves the previous environment in the boot options of
-grub/systemd-boot. This ensures that we can always roll back to the old environment even
-if the new one fails to start.
+再現性に配慮してシステムの状態を変更するには(Nixを使う以上それが推奨されています)、
+`/etc/nixos/configuration.nix`ファイルを編集した後に`sudo nixos-rebuild switch`コマンド
+で設定を適用する必要があります。このコマンドは変更された設定ファイルを元に新たなシステム環境を生成し、
+それをデフォルトとして設定した後に以前の設定をブートメニューに追加します。
+新しい環境での起動に失敗した際には、このメニューから古い環境にロールバックできます。
 
-While `/etc/nixos/configuration.nix` is the classic method for configuring NixOS, it
-relies on data sources configured by `nix-channel` and lacks a version-locking mechanism,
-making it challenging to ensure the reproducibility of the system. A better approach is to
-use Flakes, which provides reproducibility and facilitates configuration management.
+`/etc/nixos/configuration.nix`はNixOSを設定するための古い手法です。この方法ではデータソースを
+`nix-channel`に依存するためバージョンの固定を行う方法が存在せず、確実にシステムを再現するのが難しくなります。
+よりベターな方法はFlakesを利用することです。Flakesは確実な再現性と柔軟な設定の管理を提供してくれます。
 
-In this section, we will first learn how to manage NixOS using the classic method
-(`/etc/nixos/configuration.nix`), and then we will explore the more advanced Flakes.
+このセクションでははじめにNixOSをこの古い手法(`/etc/nixos/configuration.nix`)で管理する方法を学びます。
+その後、より高度な機能であるFlakesに足を踏み入れることにしましょう。
 
-## Configuring the System using `/etc/nixos/configuration.nix`
+## `/etc/nixos/configuration.nix`を用いてシステムを設定する
 
-The `/etc/nixos/configuration.nix` file is the default and classic method for configuring
-NixOS. While it lacks some of the advanced features of Flakes, it is still widely used and
-provides flexibility in system configuration.
+`/etc/nixos/configuration.nix`はNixOSの設定を行うための、デフォルトの古典的な方法です。
+Flakesと比較するといくつかの機能が不足していますが、
+システムを構成するうえで未だ広く使用されており幅広い柔軟性を提供しています。
 
-To illustrate how to use `/etc/nixos/configuration.nix`, let's consider an example where
-we enable SSH and add a user named `ryan` to the system. We can achieve this by adding the
-following content to `/etc/nixos/configuration.nix`:
+この方法による設定方法を説明するために、SSH接続を有効化して`ryan`というユーザーが追加されたシステムを
+考えてみましょう。以下の内容を`/etc/nixos/configuration.nix`に追加することでこれらの設定を行えます:
 
 ```nix{14-38}
 # Edit this configuration file to define what should be installed on
@@ -76,12 +71,12 @@ following content to `/etc/nixos/configuration.nix`:
 }
 ```
 
-In this configuration, we declare our intention to enable the openssh service, add an SSH
-public key for the user 'ryan', and disable password login.
+この設定では、opensshサービスを有効化し'ryan'ユーザーに公開鍵を追加しました。
+その後、SSHでのパスワードでのログインを無効化しました。
 
-To deploy the modified configuration, run `sudo nixos-rebuild switch`. This command will
-apply the changes, generate a new system environment, and set it as the default. You can
-now log in to the system using SSH with the configured SSH keys.
+変更された設定をデプロイするには、`sudo nixos-rebuild switch`を実行します。
+このコマンドは変更を適用して新たなシステム環境を構築し、デフォルトに設定します。
+これで、構成されたSSH鍵で認証してSSHを用いてシステムにログインできます。
 
 > You can always try to add `--show-trace --print-build-logs --verbose` to the
 > `nixos-rebuild` command to get the detailed error message if you encounter any errors
