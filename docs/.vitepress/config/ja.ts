@@ -76,7 +76,7 @@ export const ja = defineConfig({
             link: "/nixos-with-flakes/downgrade-or-upgrade-packages.md",
           },
           {
-            text: "その他のヒント",
+            text: "その他の便利な豆知識",
             link: "/nixos-with-flakes/other-useful-tips.md",
           },
         ],

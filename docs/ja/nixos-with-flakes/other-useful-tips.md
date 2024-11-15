@@ -1,10 +1,9 @@
-# Other Useful Tips
+# その他の便利な豆知識
 
-## Show detailed error messages
+## 詳細なエラーメッセージを表示する
 
-You can always try to add `--show-trace --print-build-logs --verbose` to the
-`nixos-rebuild` command to get the detailed error message if you encounter any errors
-during the deployment. e.g.
+`nixos-rebuild`のコマンドライン引数に `--show-trace --print-build-logs --verbose`を渡すと
+デプロイ中に起きたエラーについて詳細なメッセージを表示させることができます。
 
 ```bash
 cd /etc/nixos
@@ -14,21 +13,20 @@ sudo nixos-rebuild switch --flake .#myhost --show-trace --print-build-logs --ver
 sudo nixos-rebuild switch --flake .#myhost --show-trace -L -v
 ```
 
-## Managing the Configuration with Git
+## 構成をGitで管理する
 
-NixOS configuration, being a set of text files, is well-suited for version control with
-Git. This allows easy rollback to a previous version in case of issues.
+NixOSの設定ファイルはテキストファイルで構成されているのでGitでの管理に非常に適しています。
+バージョン管理を行えば、問題が発生したときに簡単にロールバックできるようになります。
 
 > NOTE: When using Git, Nix ignores all files that are not tracked by Git. If you
 > encounter an error in Nix stating that a particular file is not found, it may be because
 > you haven't `git add`ed it.
 
-By default, NixOS places the configuration in `/etc/nixos`, which requires root
-permissions for modification, making it inconvenient for daily use. Thankfully, Flakes can
-help solve this problem by allowing you to place your flake anywhere you prefer.
+デフォルトではNixOSは設定ファイルを`/etc/nixos`に配置します。
+このディレクトリは保護されているのでファイルを変更するにはroot権限が必要ですが、普段遣いをする上では非常に不便です。
+ありがたいことにFlakesはこの問題を解決してくれているので、自分の好きな場所にflakeを配置することができます。
 
-For example, you can place your flake in `~/nixos-config` and create a symbolic link in
-`/etc/nixos` as follows:
+例えば、以下のようにflakeを`~/nixos-config`に配置したうえでシンボリックリンクを作成できます:
 
 ```shell
 sudo mv /etc/nixos /etc/nixos.bak  # Backup the original configuration
@@ -38,9 +36,8 @@ sudo ln -s ~/nixos-config/ /etc/nixos
 sudo nixos-rebuild switch
 ```
 
-This way, you can use Git to manage the configuration in `~/nixos-config`. The
-configuration can be modified with regular user-level permissions and does not require
-root ownership.
+この方法では`~/nixos-config`以下にある設定をGitで管理できます。
+そしてこれらのファイルは通常のユーザー権限で編集できるのでroot権限は不要です。
 
 Another approach is to delete `/etc/nixos` directly and specify the configuration file
 path each time you deploy it:
@@ -100,7 +97,7 @@ To find out why a package is installed, you can use the following command:
 
 1. Enter a shell with `nix-tree` & `rg` available:
    `nix shell nixpkgs#nix-tree nixpkgs#ripgrep`
-1. ` nix-store --gc --print-roots | rg -v '/proc/' | rg -Po '(?<= -> ).*' | xargs -o nix-tree`
+1. `nix-store --gc --print-roots | rg -v '/proc/' | rg -Po '(?<= -> ).*' | xargs -o nix-tree`
 1. `/<package-name>` to find the package you want to check.
 1. `w` to show the package is depended by which packages, and the full dependency chain.
 
