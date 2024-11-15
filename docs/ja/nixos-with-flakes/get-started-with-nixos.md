@@ -82,23 +82,18 @@ Flakesと比較するといくつかの機能が不足していますが、
 > `nixos-rebuild` command to get the detailed error message if you encounter any errors
 > during the deployment.
 
-Remember that any reproducible changes to the system can be made by modifying the
-`/etc/nixos/configuration.nix` file and deploying the changes with
-`sudo nixos-rebuild switch`.
+システムへの再現性のある変更を適用するには、`/etc/nixos/configuration.nix`を編集し、
+`sudo nixos-rebuild switch`でそれらをデプロイするということを覚えておいてください。
 
-To find configuration options and documentation:
+構成に関するオプションとドキュメントを探すには:
 
-- Use search engines like Google, e.g., search for `Chrome NixOS` to find NixOS-related
-  information about Chrome. The NixOS Wiki and the source code of Nixpkgs are usually
-  among the top results.
-- Utilize the [NixOS Options Search](https://search.nixos.org/options) to search for
-  keywords.
-- Refer to the
-  [Configuration section](https://nixos.org/manual/nixos/unstable/index.html#ch-configuration)
-  in the NixOS Manual for system-level configuration documentation.
-- Search for keywords directly in the source code of
-  [nixpkgs](https://github.com/NixOS/nixpkgs) on GitHub.
+- Googleのような検索エンジンを使って `Chrome NixOS`のようなキーワードでChromeについて
+  NixOSに関連した情報を検索できます。殆どの場合がNixOS WikiやNixpkgsのソースコード等が
+  検索結果の最上位に表示されます。
+- 特定のキーワードを検索するには[NixOS Options Search](https://search.nixos.org/options)が便利です。
+- NixOSのマニュアルの[Configuration section](https://nixos.org/manual/nixos/unstable/index.html#ch-configuration)でシステムレベルの構成のドキュメントを参照してください。
+- GitHubで[nixpkgs](https://github.com/NixOS/nixpkgs)のソースコードを直に検索する。
 
-## References
+## 参考文献
 
 - [Overview of the NixOS Linux distribution](https://wiki.nixos.org/wiki/Overview_of_the_NixOS_Linux_distribution)
